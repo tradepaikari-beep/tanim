@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Navbar from "./components/Navbar";
 
 const categories = [
   { name: "Rice & Grains", icon: "🌾", count: "3 products", slug: "Rice & Grains" },
@@ -32,45 +33,6 @@ export default function HomePage() {
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
-
-        /* NAVBAR */
-        .nav {
-          background: var(--green);
-          padding: 0 48px;
-          height: 68px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          position: sticky;
-          top: 0;
-          z-index: 100;
-          box-shadow: 0 2px 20px rgba(0,0,0,0.18);
-        }
-        .logo {
-          font-family: 'Playfair Display', serif;
-          font-size: 22px;
-          font-weight: 700;
-          color: #fff;
-          text-decoration: none;
-        }
-        .logo span { color: var(--gold-light); }
-        .nav-cta {
-          background: var(--gold);
-          color: #fff;
-          border: none;
-          padding: 10px 22px;
-          border-radius: 8px;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 14px;
-          font-weight: 600;
-          cursor: pointer;
-          text-decoration: none;
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          transition: all 0.2s;
-        }
-        .nav-cta:hover { background: var(--gold-light); color: var(--dark); }
 
         /* HERO */
         .hero {
@@ -153,7 +115,12 @@ export default function HomePage() {
           position: relative;
           z-index: 1;
         }
-        .hero-btn:hover { background: var(--gold-light); color: var(--dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,146,42,0.35); }
+        .hero-btn:hover {
+          background: var(--gold-light);
+          color: var(--dark);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(200,146,42,0.35);
+        }
 
         /* CATEGORIES */
         .cats-section {
@@ -269,7 +236,6 @@ export default function HomePage() {
         @media (max-width: 900px) {
           .cats-grid { grid-template-columns: repeat(3, 1fr); }
           .hero h1 { font-size: 40px; }
-          .nav { padding: 0 20px; }
           .hero { padding: 70px 24px 60px; }
           .cats-section { padding: 48px 24px; }
           footer { padding: 40px 24px 24px; }
@@ -281,10 +247,7 @@ export default function HomePage() {
       `}</style>
 
       {/* NAVBAR */}
-      <nav className="nav">
-        <Link href="/" className="logo">Tanim <span>Distribution</span></Link>
-        <Link href="/products" className="nav-cta">🛒 Browse Products</Link>
-      </nav>
+      <Navbar />
 
       {/* HERO */}
       <section className="hero">
